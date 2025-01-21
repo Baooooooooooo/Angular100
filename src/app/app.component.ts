@@ -2,18 +2,21 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `<h2>Hello there!</h2>
+  <h3>Your name: {{ user.name }}</h3>
+  <p> Your age: {{ user.age }}</p>
+  <div *ngIf="+user.age >= 13"> Ban co the xem noi dung PG-13</div>
+  <div *ngIf="+user.age < 13">Ban khong the xem noi dung PG-13</div>
+  <div *ngIf="+user.age >= 18; else noPG18">Ban co the xem noi dung PG-18</div>
+  <ng-template #noPG18>
+    <div>Ban khong the xem noi dung PG-18</div>
+  </ng-template>`,
   standalone: false,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'User Profile Card';
-  image = "/w3images/team2.jpg";
-  name = "John Doe";
-  job = "CEO & Founder";
-  university = "Harvard University";
-  contact = "Contact";
-  handler(){
-    console.log('clicked');
-  }
+  user = {
+    name: 'Bao',
+    age: '30',
+  };
 }
