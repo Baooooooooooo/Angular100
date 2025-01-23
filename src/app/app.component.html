@@ -1,14 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Angular100</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-<app-root>
-</app-root>
-</body>
-</html>
+<h1>Hello</h1>
+
+<ul>
+  <li *ngFor="let u of user; index as idx; count as total; first as isFrist; last as isLast; even as isEven; odd as isOdd">
+    <span>{{idx}} out of {{total}}</span>
+    <br>
+    <span>{{u.id}} - {{u.name}} - {{u.phone}}</span>
+    <br>
+    <span *ngIf="isEven">I am even number</span>
+    <br>
+    <span *ngIf="isOdd">I am odd number</span>
+    <br>
+    <span *ngIf="isFrist">I am first number</span>
+    <br>
+    <span *ngIf="isLast">I am last number</span>
+    <br><br><br>
+    </li>
+</ul>
+
+<button *ngFor="let tag of tags; last as isLast" [class.right-margin]="!isLast">{{tag}}</button>
